@@ -1,0 +1,8 @@
+/* TEAM */
+Designer & Developer: Molly Curtis
+Site: https://mollycurtis.github.io/
+
+/* SITE */
+Welcome Back — an original interactive experience.
+© 2026 Molly Curtis. All rights reserved.
+Built with Next.js, TypeScript, Zustand.

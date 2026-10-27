@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+
+# local environment files: never commit these
+.env.local
+.env*.local
+__pycache__/
+tools/tests/screenshots/
+.DS_Store
+.vercel
