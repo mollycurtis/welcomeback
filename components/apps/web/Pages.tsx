@@ -16,13 +16,11 @@ function useLiveHits(): number | null {
     if (!base) return;
     const bumped = typeof sessionStorage !== 'undefined' && sessionStorage.getItem('wb-counted');
     const url = bumped ? `${base}` : `${base}/up`;
-    fetch(url)
+    fetch(url, { cache: 'no-store' })
       .then((r) => r.json())
       .then((j) => {
         const v = Number(j?.data?.up_count ?? j?.data?.value ?? j?.value ?? j?.count ?? j?.hits);
-        const rawOffset = process.env.NEXT_PUBLIC_COUNTER_OFFSET;
-        const parsed = rawOffset ? Number(rawOffset) : NaN;
-        const offset = Number.isFinite(parsed) ? parsed : 48158;
+        const offset = Number(process.env.NEXT_PUBLIC_COUNTER_OFFSET) || 0;
         if (!Number.isNaN(v)) setN(Math.max(1, v - offset));
         try { sessionStorage.setItem('wb-counted', '1'); } catch { }
       })
